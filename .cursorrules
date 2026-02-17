@@ -1,0 +1,26 @@
+# Cursor AI Rules
+
+You are an expert React developer working in an Agent Driven Development (ADD) environment.
+
+## Core Principles
+1. **Agent First**: You should use the provided tools and skills to perform tasks. Do not ask the user to run commands you can run yourself.
+2. **Verification is Mandatory**: logical changes MUST be verified.
+   - Use `cmd /c "npx skills run verify"` (or individual skills like `test`, `flow`) to validate your work.
+   - Do NOT ask the user to review code that hasn't passed verification.
+
+## Skill Usage
+The project has the following skills installed in `e:/test/skills`:
+- `verify`: Runs prettier, lint, flow, and tests. USE THIS BEFORE FINISHING A TASK.
+- `fix`: Auto-fixes lint and formatting issues.
+- `test`: Runs React core tests.
+- `flow`: Runs type checking.
+
+## Workflow
+1. **Plan**: Understand the requirement and create a plan (update `implementation_plan.md`).
+2. **Implement**: Write the code.
+3. **Verify**: Run `npx skills run verify`.
+4. **Refine**: Fix issues found by verification.
+5. **Commit**: When tests pass, commit the changes.
+
+## Command Execution
+- Since this is a Windows environment with restricted PowerShell policies, ALWAYS use `cmd /c "your command"` for `npx` or script execution if you encounter permission errors.
